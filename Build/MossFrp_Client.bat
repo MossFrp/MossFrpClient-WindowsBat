@@ -17,8 +17,8 @@
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJhZkoaGkrTXA==
-::ZQ05rAF9IBncCkqN+0xwdVsFAlXMaiXrZg==
+::cxY6rQJ7JhzQF1fEqQJhZkoaG0rTXA==
+::ZQ05rAF9IBncCkqN+0xwdVsFAlXMayXrZg==
 ::ZQ05rAF9IAHYFVzEqQIdJwhHahaSA0i2D7AS/Ig=
 ::eg0/rx1wNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTwg==
 ::fBEirQZwNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTwg==
@@ -29,7 +29,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCqDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrOLmKlOXAdq5CpED8cPY=
+::Zh4grVQjdCqDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrOLmKlOXAd65CpED8cPY=
 ::YB416Ek+ZG8=
 ::
 ::
@@ -42,7 +42,7 @@ CHCP 936
 :start
 cls
 echo MossFrp Client [By MossCG]
-echo Version 1.1.6.1
+echo Version 1.1.7.1
 echo B站官方Channel @墨守MossCG 记得三连关注！
 echo QQ交流群 1072507973 欢迎加入！
 echo 购买/白嫖激活码请加群~
@@ -84,6 +84,8 @@ echo 5 xg1 香港一节点 腾讯云 10M带宽 限2000G流量
 echo 7 sc1 四川一节点 移动 10M带宽 不限流量
 echo 8 jp1 日本一节点 NTT 100M带宽 不限流量
 echo 9 sq1 宿迁一节点 电信 10M带宽 不限流量
+echo 10 xg2 香港二节点 多线 50M带宽 限500G流量
+::echo 11 xc1 许昌一节点 联通 10M带宽 不限流量【无free】
 echo 请输入节点前数字编号：
 echo 输入Back可以返回上一项设置
 @set LineChoose=""
@@ -117,6 +119,9 @@ if /I "%LineChoose%"=="8" goto Readcode
 if /I "%LineChoose%"=="9" set LineUse=sq1
 if /I "%LineChoose%"=="9" set code=639984206407641464106412640311212512899993654200027893524104215652850367112891577sq1
 if /I "%LineChoose%"=="9" goto Readcode
+if /I "%LineChoose%"=="10" set LineUse=xg2
+if /I "%LineChoose%"=="10" set code=551375345521553555355529553015710911299993784000022042720331723982296283835062403xg2
+if /I "%LineChoose%"=="10" goto Readcode
 ping 127.0.0.1 -n 3 >nul
 goto FreeCannotUse
 ::读取激活码的部分
@@ -194,6 +199,8 @@ if "%LineUse%" == "jp1" set /a portclientstart=%portserver%+1
 if "%LineUse%" == "jp1" set /a portclientend=%portserver%+5000
 if "%LineUse%" == "sq1" set /a portclientstart=%portserver%+1
 if "%LineUse%" == "sq1" set /a portclientend=%portserver%+1000
+if "%LineUse%" == "xg2" set /a portclientstart=%portserver%+1
+if "%LineUse%" == "xg2" set /a portclientend=%portserver%+10000
 goto checktrue
 :DesignLine
 set /a portclientstart=1
@@ -400,8 +407,7 @@ echo @echo off >点击启动.bat
 echo :start >>点击启动.bat
 echo title MossFrp Cilent [By MossCG] >>点击启动.bat
 :ADs
-if "%IsCodeFree%" == "true" goto WriteADs
-goto frpcsettingswrite2
+goto WriteADs
 :WriteADs
 if "%LineUse%" == "zz1" goto zz1ADs
 if "%LineUse%" == "sh1" goto sh1ADs
@@ -412,10 +418,12 @@ if "%LineUse%" == "sh3" goto sh3ADs
 if "%LineUse%" == "sc1" goto sc1ADs
 if "%LineUse%" == "jp1" goto jp1ADs
 if "%LineUse%" == "sq1" goto sq1ADs
+if "%LineUse%" == "xg2" goto xg2ADs
+if "%LineUse%" == "xc1" goto xc1ADs
 goto frpcsettingswrite2
 :zz1ADs
 echo echo ==========节点信息========== >>点击启动.bat
-echo echo 您正在使用的是MossFrp官方免费节点 >>点击启动.bat
+echo echo 您正在使用的是MossFrp官方节点 >>点击启动.bat
 echo echo 当然你也可以赞助一个节点 >>点击启动.bat
 echo echo 这里就能显示您的自定义AD哦~ >>点击启动.bat
 goto frpcsettingswrite2
@@ -429,7 +437,7 @@ echo echo 版本：1.16.x~1.17.x(JE版)1.17.x(BE) >>点击启动.bat
 goto frpcsettingswrite2
 :cz1ADs
 echo echo ==========节点信息========== >>点击启动.bat
-echo echo 您正在使用的是MossFrp官方免费节点 >>点击启动.bat
+echo echo 您正在使用的是MossFrp官方节点 >>点击启动.bat
 echo echo 当然你也可以赞助一个节点 >>点击启动.bat
 echo echo 这里就能显示您的自定义AD哦~ >>点击启动.bat
 echo echo PS：打点钱吧~孩子快要吃不起饭了~ >>点击启动.bat
@@ -492,6 +500,18 @@ echo echo 欢迎使用宿迁一节点！ >>点击启动.bat
 echo echo 租服推荐高性能大带宽低价i9服务器 >>点击启动.bat
 echo echo 50元/月起 >>点击启动.bat
 echo echo 联系方式QQ: 1350944738 >>点击启动.bat
+goto frpcsettingswrite2
+:xg1ADs
+echo echo ==========节点信息==========  >>点击启动.bat
+echo echo 欢迎使用香港二节点！ >>点击启动.bat
+echo echo 由迟迟赞助~感谢支持~ >>点击启动.bat
+goto frpcsettingswrite2
+:xc1ADs
+echo echo ==========节点信息==========  >>点击启动.bat
+echo echo 您正在使用的是MossFrp官方节点 >>点击启动.bat
+echo echo 当然你也可以赞助一个节点 >>点击启动.bat
+echo echo 这里就能显示您的自定义AD哦~ >>点击启动.bat
+echo echo PS：打点钱吧~孩子快要吃不起饭了~ >>点击启动.bat
 goto frpcsettingswrite2
 :frpcsettingswrite2
 echo echo ==========链接配置========== >>点击启动.bat
