@@ -17,8 +17,8 @@
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJhZkoaGUrVXA==
-::ZQ05rAF9IBncCkqN+0xwdVsFAlXMaSXtZg==
+::cxY6rQJ7JhzQF1fEqQJhZkoaGkrTXA==
+::ZQ05rAF9IBncCkqN+0xwdVsFAlXMaiXrZg==
 ::ZQ05rAF9IAHYFVzEqQIdJwhHahaSA0i2D7AS/Ig=
 ::eg0/rx1wNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTwg==
 ::fBEirQZwNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTwg==
@@ -29,19 +29,20 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCqDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrOLmKlOXAda5EpED8cPY=
+::Zh4grVQjdCqDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrOLmKlOXAdq5CpED8cPY=
 ::YB416Ek+ZG8=
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
 title Mossfrp配置程序
+CHCP 936
 ::这一段是开头提示
 ::包括一些防呆不防傻的提示以及版本号
 :start
 cls
 echo MossFrp Client [By MossCG]
-echo Version 1.1.5.7
+echo Version 1.1.6.1
 echo B站官方Channel @墨守MossCG 记得三连关注！
 echo QQ交流群 1072507973 欢迎加入！
 echo 购买/白嫖激活码请加群~
@@ -82,7 +83,7 @@ echo 5 xg1 香港一节点 腾讯云 10M带宽 限2000G流量
 ::echo 6 sh3 上海三节点 阿里云 80M带宽 按量计费
 echo 7 sc1 四川一节点 移动 10M带宽 不限流量
 echo 8 jp1 日本一节点 NTT 100M带宽 不限流量
-echo 9 sq1 宿迁一节点 多线 10M带宽 不限流量
+echo 9 sq1 宿迁一节点 电信 10M带宽 不限流量
 echo 请输入节点前数字编号：
 echo 输入Back可以返回上一项设置
 @set LineChoose=""
@@ -170,34 +171,7 @@ if %ippart3% lss 0 goto CodeCannotUse
 if %ippart4% gtr 255 goto CodeCannotUse
 if %ippart4% lss 0 goto CodeCannotUse
 if /I "%ippart6%"=="dsg" goto DesignLine
-if /I "%ippart5%"=="zz1" goto Checkisfree
-if /I "%ippart5%"=="sh1" goto Checkisfree
-if /I "%ippart5%"=="cz1" goto Checkisfree
-if /I "%ippart5%"=="sh2" goto Checkisfree
-if /I "%ippart5%"=="xg1" goto Checkisfree
-if /I "%ippart5%"=="sh3" goto Checkisfree
-if /I "%ippart5%"=="sc1" goto Checkisfree
-if /I "%ippart5%"=="jp1" goto Checkisfree
-if /I "%ippart5%"=="sq1" goto Checkisfree
-goto UnknownLine
-::未知节点判断
-::当用户数字验证都通过但是节点不在上面的部分时候
-::就可以加一个验证
-:UnknownLine
-echo ==========确认==========
-echo 你使用的是未知的节点
-echo 请确认激活码是否有误
-echo 输入下列选项前的数字进行选择：
-echo 1.确认为正常节点，继续
-echo 2.激活码有误，重新输入
-echo 3.为定制节点
-echo ==========确认==========
-@set Unknowntype=""
-@set /p Unknowntype=
-if /I "%Unknowntype%"=="1" goto Checkisfree
-if /I "%Unknowntype%"=="2" goto Start
-if /I "%Unknowntype%"=="3" goto DesignLine
-goto UnknownLine
+goto Checkisfree
 :Checkisfree
 if "%IsCodeFree%" == "true" goto SetFreePort
 if "%IsCodeFree%" == "false" goto checktrue
