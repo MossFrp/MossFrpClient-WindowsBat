@@ -16,8 +16,8 @@
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJhZkoaG0rTXA==
-::ZQ05rAF9IBncCkqN+0xwdVsFAlXMayXrZg==
+::cxY6rQJ7JhzQF1fEqQJhZkoaG0rQXA==
+::ZQ05rAF9IBncCkqN+0xwdVsFAlXMayXoZg==
 ::ZQ05rAF9IAHYFVzEqQIdJwhHahaSA0i2D7AS/Nfd7vmTtC0=
 ::eg0/rx1wNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTnWscR/YpGA==
 ::fBEirQZwNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTnWscR/YpGA==
@@ -28,7 +28,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCqDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrR6nayaCYYNZCpBSqIth8mH9Cnas=
+::Zh4grVQjdCqDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrR6nayaCYYNZCpBSqIth/mH9Cnas=
 ::YB416Ek+ZG8=
 ::
 ::
@@ -41,7 +41,7 @@ CHCP 936
 :start
 cls
 echo MossFrp Client [By MossCG]
-echo Version 1.1.7.1 Fast Version
+echo Version 1.1.7.2 Fast Version
 echo B站官方Channel @墨守MossCG 记得三连关注！
 echo QQ交流群 1072507973 欢迎加入！
 echo 购买/白嫖激活码请加群~
@@ -76,7 +76,7 @@ echo ==========提示==========
 echo 节点列表：
 ::echo 1 zz1 枣庄一节点 多线 10M带宽 不限流量
 ::echo 2 sh1 上海一节点 腾讯云 30M带宽 限1000G流量
-echo 3 cz1 常州一节点 多线 10M带宽 限4000G流量
+::echo 3 cz1 常州一节点 多线 10M带宽 限4000G流量
 ::echo 4 sh2 上海二节点 腾讯云 100M带宽 按量计费
 echo 5 xg1 香港一节点 腾讯云 10M带宽 限2000G流量
 ::echo 6 sh3 上海三节点 阿里云 80M带宽 按量计费
@@ -85,6 +85,8 @@ echo 8 jp1 日本一节点 NTT 100M带宽 不限流量
 echo 9 sq1 宿迁一节点 电信 10M带宽 不限流量
 echo 10 xg2 香港二节点 多线 50M带宽 限500G流量
 ::echo 11 xc1 许昌一节点 联通 10M带宽 不限流量【无free】
+echo 12 rs1 俄罗斯一节点 多线 200M带宽 不限流量
+echo 13 rs2 俄罗斯二节点 多线 100M带宽 不限流量
 echo 请输入节点前数字编号：
 echo 输入Back可以返回上一项设置
 @set LineChoose=""
@@ -121,6 +123,12 @@ if /I "%LineChoose%"=="9" goto Readcode
 if /I "%LineChoose%"=="10" set LineUse=xg2
 if /I "%LineChoose%"=="10" set code=551375345521553555355529553015710911299993784000022042720331723982296283835062403xg2
 if /I "%LineChoose%"=="10" goto Readcode
+if /I "%LineChoose%"=="11" set LineUse=rs1
+if /I "%LineChoose%"=="11" set code=618082016189618162036183622312714214899994175000022924148562316152487420656711757rs1
+if /I "%LineChoose%"=="11" goto Readcode
+if /I "%LineChoose%"=="12" set LineUse=rs2
+if /I "%LineChoose%"=="12" set code=597779985986599460005987602811318819099994914000051285324456250685173548045865192rs2
+if /I "%LineChoose%"=="12" goto Readcode
 ping 127.0.0.1 -n 3 >nul
 goto FreeCannotUse
 ::读取激活码的部分
@@ -200,6 +208,10 @@ if "%LineUse%" == "sq1" set /a portclientstart=%portserver%+1
 if "%LineUse%" == "sq1" set /a portclientend=%portserver%+1000
 if "%LineUse%" == "xg2" set /a portclientstart=%portserver%+1
 if "%LineUse%" == "xg2" set /a portclientend=%portserver%+10000
+if "%LineUse%" == "rs1" set /a portclientstart=%portserver%+1
+if "%LineUse%" == "rs1" set /a portclientend=%portserver%+10000
+if "%LineUse%" == "rs2" set /a portclientstart=%portserver%+1
+if "%LineUse%" == "rs2" set /a portclientend=%portserver%+10000
 goto checktrue
 :DesignLine
 set /a portclientstart=1
@@ -377,6 +389,8 @@ if "%LineUse%" == "jp1" goto jp1ADs
 if "%LineUse%" == "sq1" goto sq1ADs
 if "%LineUse%" == "xg2" goto xg2ADs
 if "%LineUse%" == "xc1" goto xc1ADs
+if "%LineUse%" == "rs1" goto rs1ADs
+if "%LineUse%" == "rs2" goto rs2ADs
 goto frpcstart2
 :zz1ADs
 echo ==========节点信息==========
@@ -469,6 +483,16 @@ echo 您正在使用的是MossFrp官方节点
 echo 当然你也可以赞助一个节点 
 echo 这里就能显示您的自定义AD哦~ 
 echo PS：打点钱吧~孩子快要吃不起饭了~
+goto frpcstart2
+:rs1ADs
+echo ==========节点信息==========  
+echo 欢迎使用俄罗斯一节点！ 
+echo 由Nazereth赞助~感谢支持~ 
+goto frpcstart2
+:rs2ADs
+echo ==========节点信息==========  
+echo 欢迎使用俄罗斯二节点！ 
+echo 由魚が大好きな猫赞助~感谢支持~ 
 goto frpcstart2
 :frpcstart2
 echo ==========链接配置==========
