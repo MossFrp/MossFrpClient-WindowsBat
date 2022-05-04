@@ -16,8 +16,8 @@
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJiZkoaHUrTXA==
-::ZQ05rAF9IBncCkqN+0xwdVsGAlXMbSXrZg==
+::cxY6rQJ7JhzQF1fEqQJiZkoaH0rTXA==
+::ZQ05rAF9IBncCkqN+0xwdVsGAlXMbyXrZg==
 ::ZQ05rAF9IAHYFVzEqQIdJwhHahaSA0i2D7AS/Nfd7vmTtC0=
 ::eg0/rx1wNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTnWscR/YpGA==
 ::fBEirQZwNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTnWscR/YpGA==
@@ -28,7 +28,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCiDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrR6nayaCYYNZBpBSqJNh8mH9Cnas=
+::Zh4grVQjdCiDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrR6nayaCYYNZBpBSqJth8mH9Cnas=
 ::YB416Ek+ZG8=
 ::
 ::
@@ -41,15 +41,15 @@ CHCP 936
 :start
 cls
 echo MossFrp Windows Bat Client [By MossCG]
-echo Version 2.1.1.1 Beta Fast Version
+echo Version 2.1.3.1 Beta Fast Version
 echo B站官方Channel @墨守MossCG 记得三连关注！
 echo QQ交流群 1072507973 欢迎加入！
-echo 购买/白嫖激活码请加群~
+echo 购买/白嫖穿透码请加群~
 echo Tips：此版本为快捷版
 echo 配置完成之后将直接启动Frpc
 echo 如需长期使用请使用标准版
 echo ==========配置==========
-echo 请输入激活码
+echo 请输入穿透码
 echo PS：部分版本windows的CMD无法ctrl+v粘贴
 echo 可以尝试右键窗口内黑色区域粘贴
 echo ==========配置==========
@@ -57,17 +57,17 @@ echo ==========配置==========
 @set /p code=
 echo ==========读取==========
 goto readCode
-::读取激活码的部分
-::说白就是把激活码按位数分割
+::读取穿透码的部分
+::说白就是把穿透码按位数分割
 ::方便之后的使用读取啥的
 :readCode
-echo 正在解析激活码中......
+echo 正在解析穿透码中......
 set connectkey=%code%
 set prefixLength=%code:~0,1%
 if "%prefixLength%" == "3" goto prefixLength3
 if "%prefixLength%" == "4" goto prefixLength4
 goto CodeCannotUse
-::3位前缀长度激活码解析
+::3位前缀长度穿透码解析
 :prefixLength3
 set prefix=%code:~1,3%
 set authKey=%code:~4,5%
@@ -76,7 +76,7 @@ set /a portStart=%portServer%+1
 set /a portEnd=%portServer%+9
 set /a number=%code:~14,7%-authKey
 goto checkTrue
-::4位前缀长度激活码解析
+::4位前缀长度穿透码解析
 :prefixLength4
 set prefix=%code:~1,4%
 set authKey=%code:~5,5%
@@ -85,8 +85,8 @@ set /a portStart=%portServer%+1
 set /a portEnd=%portServer%+9
 set /a number=%code:~15,7%-authKey
 goto checkTrue
-::这一段是验证激活码解析出来的内容
-::避免用户复制了错的激活码
+::这一段是验证穿透码解析出来的内容
+::避免用户复制了错的穿透码
 ::实质上就是判断端口是否小于1大于65535啊之类的
 ::很憨的逻辑但是很有效
 :checkTrue
@@ -290,8 +290,8 @@ echo 请重新设置！
 ping 127.0.0.1 -n 2 >nul
 goto Freecode
 :CodeCannotUse
-echo 激活码验证失败！
-echo 请确认激活码无误或重新生成激活码
+echo 穿透码验证失败！
+echo 请确认穿透码无误或重新生成穿透码
 ping 127.0.0.1 -n 2 >nul
 goto start
 :End
