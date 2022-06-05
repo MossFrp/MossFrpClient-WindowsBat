@@ -16,8 +16,8 @@
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJiZkoaH0rTXA==
-::ZQ05rAF9IBncCkqN+0xwdVsGAlXMbyXrZg==
+::cxY6rQJ7JhzQF1fEqQJiZkoaH0rQXA==
+::ZQ05rAF9IBncCkqN+0xwdVsGAlXMbyXoZg==
 ::ZQ05rAF9IAHYFVzEqQIdJwhHahaSA0i2D7AS/Nfd7vmTtC0=
 ::eg0/rx1wNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTnWscR/YpGA==
 ::fBEirQZwNQPfEVWB+kM9LVsJDCmNL3icFKUjy+Ty6uSTnWscR/YpGA==
@@ -28,7 +28,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCiDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrR6nayaCYYNZBpBSqJth8mH9Cnas=
+::Zh4grVQjdCiDJHSL51EWOgtrbwiLOWWuOpgT+/vd/fq4gUEUUewrR6nayaCYYNZBpBSqJth/mH9Cnas=
 ::YB416Ek+ZG8=
 ::
 ::
@@ -41,7 +41,7 @@ CHCP 936
 :start
 cls
 echo MossFrp Windows Bat Client [By MossCG]
-echo Version 2.1.3.1 Beta Fast Version
+echo Version 2.1.3.2 Release Fast Version
 echo B站官方Channel @墨守MossCG 记得三连关注！
 echo QQ交流群 1072507973 欢迎加入！
 echo 购买/白嫖穿透码请加群~
